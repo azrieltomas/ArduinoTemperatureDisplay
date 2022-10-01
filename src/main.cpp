@@ -32,7 +32,7 @@ void setup() {
     segDisplay.writeDisplay();
 
     // display a turn on message & wait a second
-    char startMessage[4] = "ON";
+    char startMessage[5] = "ON  "; // 5th element is LF
     for (uint8_t i = 0; i < 4; i++) {
         segDisplay.writeDigitAscii(i, startMessage[i]);
     }
@@ -54,10 +54,10 @@ void loop() {
         uint16_t temperature = round(thermocouple.readCelsius());
 
         // DISPLAY
-        // move into temporary buffer
+        // move into temporary  character buffer
         sprintf(displayBuffer, "%d", temperature);
 
-        // display buffer is left justified, needs to be right justified
+        // display buffer is left justified, but right justified looks better
         uint8_t digitsTemperature = 0;
         // bad method for figuring this out
         if (temperature < 10) {
