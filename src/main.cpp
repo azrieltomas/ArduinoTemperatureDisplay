@@ -24,7 +24,8 @@ Adafruit_AlphaNum4 segDisplay = Adafruit_AlphaNum4();
 char displayBuffer[4] = "   "; // NULL is meant for pointers
 // all other char[] need to have an additional index to mark the end (LF etc?). This does not need to be passed to the display buffer.
 
-void setup() {
+void setup()
+{
     // setup display
     segDisplay.begin(SEG_14_ADDRESS);
     segDisplay.setBrightness(4);
@@ -41,7 +42,8 @@ void setup() {
     segDisplay.clear();
 }
 
-void loop() {
+void loop()
+{
     uint8_t i;
     // read value based on a timer, avoid using delay()
     if (timerRefresh == 0) {
